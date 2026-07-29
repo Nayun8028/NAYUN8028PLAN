@@ -1,0 +1,185 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>아키嘅Halloween Cosplay ㅇㅈ韓國旅遊 ㅎㅎㅎ</title>
+<style>
+@import url('https://googleapis.com');
+
+body {
+margin: 0; padding: 0; min-height: 100vh;
+display: flex; justify-content: center; align-items: center;
+overflow-x: hidden;
+background-color: #2e2a36;
+background-image:
+radial-gradient(circle at 50% 50%, rgba(36, 32, 43, 0.6) 20%, transparent 20%, transparent 80%, rgba(36, 32, 43, 0.6) 80%),
+linear-gradient(45deg, rgba(26, 22, 33, 0.4) 25%, transparent 25%, transparent 75%, rgba(26, 22, 33, 0.4) 75%),
+linear-gradient(-45deg, rgba(26, 22, 33, 0.4) 25%, transparent 25%, transparent 75%, rgba(26, 22, 33, 0.4) 75%);
+background-size: 60px 60px; background-position: 0 0, 30px 30px, 30px 30px;
+}
+
+/* 🕸️ 終極大圖層：10個大蜘蛛網，改用 absolute 確保隨網頁滾動不縮水 🕸️ */
+.spider-web { position: absolute; font-size: 10rem; opacity: 0.16; color: #cca3ff; pointer-events: none; z-index: 1; }
+.web-1 { top: 20px; left: 20px; font-size: 12rem; }
+.web-2 { top: 40px; right: 20px; font-size: 12rem; }
+.web-3 { top: 300px; left: 40px; transform: rotate(45deg); }
+.web-4 { top: 250px; right: 80px; transform: rotate(-30deg); }
+.web-5 { top: 550px; left: 15px; transform: rotate(15deg); }
+.web-6 { top: 600px; right: 30px; transform: rotate(80deg); }
+.web-7 { bottom: 200px; left: 50px; font-size: 8rem; }
+.web-8 { bottom: 150px; right: 60px; transform: rotate(-60deg); }
+/* 🆕 特別加強：正中央背景增加 2 個超級大蜘蛛網 */
+.web-9 { top: 40%; left: 50%; transform: translate(-50%, -50%) rotate(25deg); font-size: 15rem; opacity: 0.12; }
+.web-10 { bottom: 40%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg); font-size: 14rem; opacity: 0.12; }
+
+.main-container {
+text-align: center; color: #e0daeb; font-family: 'Noto Sans TC', sans-serif;
+padding: 20px; position: relative; z-index: 2; width: 100%; max-width: 1000px;
+}
+
+.rating-stars { font-size: 1.6rem; color: #cca3ff; margin-bottom: 5px; letter-spacing: 6px; text-shadow: 0 0 10px #6a0dad; }
+
+/* 幻彩紫色閃爍星星動畫 */
+.rainbow-blink {
+display: inline-block;
+animation: rainbowGlow 2s infinite ease-in-out;
+}
+@keyframes rainbowGlow {
+0%, 100% { color: #cca3ff; filter: drop-shadow(0 0 5px #6a0dad); transform: scale(1); }
+33% { color: #ff94b8; filter: drop-shadow(0 0 12px #ff94b8); transform: scale(1.03); }
+66% { color: #b894ff; filter: drop-shadow(0 0 15px #cca3ff); transform: scale(0.97); }
+}
+
+h1 { font-size: 2.8rem; color: #cca3ff; margin-top: 15px; margin-bottom: 20px; font-weight: 700; text-shadow: 0 5px 5px rgba(0, 0, 0, 0.8), 0 0 10px #6a0dad; }
+.float-decoration { display: inline-block; font-size: 2.3rem; animation: pumpkinFloat 2.2s infinite ease-in-out; }
+.delay-1 { animation-delay: 0.4s; } .delay-2 { animation-delay: 0.8s; }
+
+.dream-blink {
+color: #d48da3; font-family: 'Creepster', cursive; font-size: 3rem;
+animation: dreamGlow 1.6s infinite ease-in-out; display: inline-block; margin-left: 10px;
+}
+@keyframes dreamGlow {
+0%, 100% { opacity: 0.4; filter: drop-shadow(0 0 2px rgba(0,0,0,0)); transform: scale(0.98); }
+50% { opacity: 1; filter: drop-shadow(0 0 15px #d48da3); transform: scale(1.05); }
+}
+
+.blink { animation: gothicBlink 1.2s infinite ease-in-out; color: #ff94b8; display: inline-block; }
+@keyframes gothicBlink { 0%, 100% { opacity: 0.2; } 50% { opacity: 1; filter: drop-shadow(0 0 12px #ff94b8); } }
+@keyframes pumpkinFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+.gothic-text { font-family: 'Creepster', cursive; font-size: 1.5rem; color: #ff94b8; letter-spacing: 2px; }
+p { font-size: 1.2rem; line-height: 1.8; margin-bottom: 25px; }
+
+.random-star-btn {
+background: none; border: none; font-size: 3rem; color: #fff; cursor: pointer;
+animation: starFlash 0.6s infinite alternate; text-shadow: 0 0 15px #fff, 0 0 30px #cca3ff;
+margin: 10px 0; transition: transform 0.2s;
+}
+@keyframes starFlash { 0% { opacity: 0.3; } 100% { opacity: 1; } }
+
+.idol-gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin: 20px auto; }
+.idol-gallery img {
+width: 135px; height: 135px; object-fit: cover; border-radius: 12px;
+border: 2px solid #6a0dad; box-shadow: 0 5px 15px rgba(0,0,0,0.7);
+cursor: pointer; transition: all 0.3s ease;
+}
+.idol-gallery img:hover { transform: scale(1.08) translateY(-4px); border-color: #cca3ff; box-shadow: 0 0 15px #cca3ff; }
+
+.search-container { margin: 25px 0; }
+input[type="text"] {
+background: rgba(36, 32, 43, 0.9); border: 2px solid #6a0dad; color: #cca3ff;
+padding: 12px 25px; border-radius: 25px; outline: none; text-align: center;
+font-size: 1rem; width: 300px; transition: all 0.3s ease;
+}
+input[type="text"]:focus { border-color: #cca3ff; box-shadow: 0 0 10px #cca3ff; }
+
+.gothic-btn {
+display: inline-flex; align-items: center; gap: 10px;
+background: rgba(106, 13, 173, 0.4); color: #fff;
+padding: 12px 25px; border-radius: 30px; text-decoration: none;
+font-weight: bold; border: 2px solid #cca3ff; font-size: 1rem;
+letter-spacing: 1px; box-shadow: 0 0 15px rgba(204, 163, 255, 0.3);
+transition: all 0.3s ease; margin: 5px;
+}
+.gothic-btn:hover {
+box-shadow: 0 0 25px #ff94b8; border-color: #ff94b8;
+background: rgba(212, 141, 163, 0.4); transform: translateY(-2px);
+}
+
+.skz-section {
+margin-top: 30px; padding: 20px;
+background: rgba(36, 32, 43, 0.6);
+border-radius: 20px; border: 1px solid #6a0dad;
+}
+
+.lightbox {
+display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%;
+background-color: rgba(15, 12, 18, 0.95); justify-content: center; align-items: center;
+}
+.lightbox img { max-width: 85%; max-height: 85%; border-radius: 15px; border: 3px solid #cca3ff; }
+.lightbox-close { position: absolute; top: 30px; right: 40px; color: #cca3ff; font-size: 3rem; cursor: pointer; }
+</style>
+</head>
+<body>
+
+<!-- 🕸️ 10個超大滿版不規則蜘蛛網背景 🕸️ -->
+<div class="spider-web web-1">🕸️</div><div class="spider-web web-2">🕸️</div>
+<div class="spider-web web-3">🕸️</div><div class="spider-web web-4">🕸️</div>
+<div class="spider-web web-5">🕸️</div><div class="spider-web web-6">🕸️</div>
+<div class="spider-web web-7">🕸️</div><div class="spider-web web-8">🕸️</div>
+<div class="spider-web web-9">🕸️</div><div class="spider-web web-10">🕸️</div>
+
+<div class="main-container">
+<div class="rating-stars rainbow-blink">♡ ★ ★ ★ ★ ★ ★ ♡</div>
+<div class="rating-stars">♡ ★ ★ ★ ★ ★ ★ ♡</div>
+
+<h1>
+<span class="float-decoration">🎃</span>
+<span class="float-decoration delay-2">🕸️</span>
+안녕하세요!歡迎來到我 아키 嘅 도깨비世界！
+<span class="float-decoration delay-1">🎃</span>
+<span class="blink">♥ ♡ ㅎㅎㅎ❣️🕸️ ★</span>
+<span class="dream-blink">도깨비 DrEaM</span>
+</h1>
+
+<p>會為大家介紹我最愛嘅 <span class="gothic-text">Korean World with K-Pop</span> <span class="blink">♥ ♡</span> <span class="gothic-text">CosPlay</span> <span class="blink">♥ ♡</span> <span class="gothic-text">Travel</span> <span class="blink">♥ ♡</span> <span class="gothic-text">EveryThing</span> <span class="blink">❣️🕸️ ★</span></p>
+
+<div>
+<button class="random-star-btn" onclick="goToRandomSample()" title="隨機切換至20個樣本紀錄之一">★</button>
+</div>
+
+<div class="idol-gallery">
+<img src="{% static 'idol.jpg' %}" alt="Stray Kids 1" onclick="openLightbox(this.src)">
+<img src="{% static 'idol2.jpg' %}" alt="Stray Kids 2" onclick="openLightbox(this.src)">
+<img src="{% static 'idol3.jpg' %}" alt="Stray Kids 3" onclick="openLightbox(this.src)">
+<img src="{% static 'idol4.jpg' %}" alt="Stray Kids 4" onclick="openLightbox(this.src)">
+<img src="{% static 'idol5.jpg' %}" alt="Stray Kids 5" onclick="openLightbox(this.src)">
+<img src="{% static 'idol6.jpg' %}" alt="Stray Kids 6" onclick="openLightbox(this.src)">
+<img src="{% static 'idol7.jpg' %}" alt="Stray Kids 7" onclick="openLightbox(this.src)">
+<img src="{% static 'idol8.png' %}" alt="Stray Kids 8" onclick="openLightbox(this.src)">
+</div>
+
+<div class="search-container">
+<form action="{% url 'search_view' %}" method="GET">
+<input type="text" name="q" placeholder="🔎 輸入名字搜尋偶像、餐廳、景點或計劃...">
+</form>
+</div>
+
+<div class="skz-section">
+<p style="font-size: 1.1rem; color: #cca3ff; margin-bottom: 12px; letter-spacing: 1px;">🔮 아 키 嘅音樂收藏與 Stray Kids 最愛神曲 🔮</p>
+
+<a href="https://udio.com" target="_blank" class="gothic-btn">
+<span>🎵 Play Original AI Music</span>
+</a>
+
+<!-- 🎯 完美替換：一 click 直接精準跳轉到官方官方 MV 歌曲網頁 🎯 -->
+<a href="https://youtu.be/dBDkYofMUs4?si=6nYS8pVm8Ju3ii3t" target="_blank" class="gothic-btn">
+<span>⚡ 락 樂 LALALALA</span>
+</a>
+<a href="https://www.youtube.com/watch?v=0P0aQreFs8w" target="_blank" class="gothic-btn">
+<span>💥 Chk Chk Boom</span>
+</a>
+<a href="https://www.youtube.com/watch?v=jYSlpC6Ud2A" target="_blank" class="gothic-btn">
+<span>❣️ Case 143</span>
+</a>
