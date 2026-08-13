@@ -20,7 +20,7 @@ background-size: 60px 60px; background-position: 0 0, 30px 30px, 30px 30px;
 }
 
 /* 🕸️ 終極大圖層：10個大蜘蛛網，改用 absolute 確保隨網頁滾動不縮水 🕸️ */
-.spider-web { position: absolute; font-size: 10rem; opacity: 0.16; color: #cca3ff; pointer-events: none; z-index: 1; }
+.spider-web { position: absolute; font-size: 10rem; opacity: 0.16; color: #7519e5d4; pointer-events: none; z-index: 1; }
 .web-1 { top: 20px; left: 20px; font-size: 12rem; }
 .web-2 { top: 40px; right: 20px; font-size: 12rem; }
 .web-3 { top: 300px; left: 40px; transform: rotate(45deg); }
@@ -34,11 +34,11 @@ background-size: 60px 60px; background-position: 0 0, 30px 30px, 30px 30px;
 .web-10 { bottom: 40%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg); font-size: 14rem; opacity: 0.12; }
 
 .main-container {
-text-align: center; color: #e0daeb; font-family: 'Noto Sans TC', sans-serif;
+text-align: center; color: #7f0f9cb7; font-family: 'Noto Sans TC', sans-serif;
 padding: 20px; position: relative; z-index: 2; width: 100%; max-width: 1000px;
 }
 
-.rating-stars { font-size: 1.6rem; color: #cca3ff; margin-bottom: 5px; letter-spacing: 6px; text-shadow: 0 0 10px #6a0dad; }
+.rating-stars { font-size: 1.6rem; color: #d621e7e4; margin-bottom: 5px; letter-spacing: 6px; text-shadow: 0 0 10px #bd088de3; }
 
 /* 幻彩紫色閃爍星星動畫 */
 .rainbow-blink {
@@ -121,65 +121,179 @@ background-color: rgba(15, 12, 18, 0.95); justify-content: center; align-items: 
 .lightbox-close { position: absolute; top: 30px; right: 40px; color: #cca3ff; font-size: 3rem; cursor: pointer; }
 </style>
 </head>
+<!-- 請把 index.html 裡的 <body> 區塊完全替換成這段完美排版： -->
+
+
+
 <body>
 
-<!-- 🕸️ 10個超大滿版不規則蜘蛛網背景 🕸️ -->
+<!-- 🕸️ 12個超大滿版不規則蜘蛛網背景 🕸️ -->
 <div class="spider-web web-1">🕸️</div><div class="spider-web web-2">🕸️</div>
 <div class="spider-web web-3">🕸️</div><div class="spider-web web-4">🕸️</div>
 <div class="spider-web web-5">🕸️</div><div class="spider-web web-6">🕸️</div>
 <div class="spider-web web-7">🕸️</div><div class="spider-web web-8">🕸️</div>
 <div class="spider-web web-9">🕸️</div><div class="spider-web web-10">🕸️</div>
+<div class="spider-web web-11">🕸️</div><div class="spider-web web-12">🕸️</div>
 
 <div class="main-container">
 <div class="rating-stars rainbow-blink">♡ ★ ★ ★ ★ ★ ★ ♡</div>
-<div class="rating-stars">♡ ★ ★ ★ ★ ★ ★ ♡</div>
+<div class="rating-stars">♡ ★ ★ ★♡★ ★ ★ ♡</div>
 
-<h1>
-<span class="float-decoration">🎃</span>
-<span class="float-decoration delay-2">🕸️</span>
-안녕하세요!歡迎來到我 아키 嘅 도깨비世界！
-<span class="float-decoration delay-1">🎃</span>
-<span class="blink">♥ ♡ ㅎㅎㅎ❣️🕸️ ★</span>
-<span class="dream-blink">도깨비 DrEaM</span>
-</h1>
+<body>
 
-<p>會為大家介紹我最愛嘅 <span class="gothic-text">Korean World with K-Pop</span> <span class="blink">♥ ♡</span> <span class="gothic-text">CosPlay</span> <span class="blink">♥ ♡</span> <span class="gothic-text">Travel</span> <span class="blink">♥ ♡</span> <span class="gothic-text">EveryThing</span> <span class="blink">❣️🕸️ ★</span></p>
+<!-- 1. 萬聖節動態效果專用樣式（CSS 動畫魔法） -->
+<style>
+/* 閃爍跳動動畫 1 */
+@keyframes halloweenBlink {
+0%, 100% { opacity: 0.3; transform: scale(1); filter: drop-shadow(0 0 2px #ff79c6); }
+50% { opacity: 1; transform: scale(1.1); filter: drop-shadow(0 0 15px #ff79c6) drop-shadow(0 0 30px #ff79c6); }
+}
+/* 輕微上下漂浮跳動動畫 2 */
+@keyframes floatJump {
+0%, 100% { transform: translateY(0); }
+50% { transform: translateY(-8px); }
+}
+/* 酷炫霓虹呼吸動畫 3 */
+        @keyframes neonPulse {
+            0%, 100% { border-color: #ff79c6; box-shadow: 0 0 10px #ff79c6; }
+            50% { border-color: #bd93f9; box-shadow: 0 0 25px #bd93f9, 0 0 40px #ff79c6; }
+        }
+        /* 套用動畫的類別 */
+        .blink-jump { animation: halloweenBlink 1.5s infinite ease-in-out, floatJump 2s infinite ease-in-out; display: inline-block; }
+        .only-blink { animation: halloweenBlink 2s infinite ease-in-out; display: inline-block; }
+        .neon-box { animation: neonPulse 3s infinite ease-in-out; }
+    </style>
 
-<div>
-<button class="random-star-btn" onclick="goToRandomSample()" title="隨機切換至20個樣本紀錄之一">★</button>
-</div>
+    <!-- 2. 左右兩側的萬城節巨大蜘蛛網 -->
+    <div class="spider-web left-web" style="position: fixed; left: 20px; top: 30%; font-size: 80px; opacity: 0.2; z-index: 1; pointer-events: none;">🕸️</div>
+    <div class="spider-web right-web" style="position: fixed; right: 20px; top: 30%; font-size: 80px; opacity: 0.2; z-index: 1; pointer-events: none;">🕸️</div>
 
-<div class="idol-gallery">
-<img src="{% static 'idol.jpg' %}" alt="Stray Kids 1" onclick="openLightbox(this.src)">
-<img src="{% static 'idol2.jpg' %}" alt="Stray Kids 2" onclick="openLightbox(this.src)">
-<img src="{% static 'idol3.jpg' %}" alt="Stray Kids 3" onclick="openLightbox(this.src)">
-<img src="{% static 'idol4.jpg' %}" alt="Stray Kids 4" onclick="openLightbox(this.src)">
-<img src="{% static 'idol5.jpg' %}" alt="Stray Kids 5" onclick="openLightbox(this.src)">
-<img src="{% static 'idol6.jpg' %}" alt="Stray Kids 6" onclick="openLightbox(this.src)">
-<img src="{% static 'idol7.jpg' %}" alt="Stray Kids 7" onclick="openLightbox(this.src)">
-<img src="{% static 'idol8.png' %}" alt="Stray Kids 8" onclick="openLightbox(this.src)">
-</div>
+    <div class="main-container" style="position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; text-align: center;">
 
-<div class="search-container">
-<form action="{% url 'search_view' %}" method="GET">
-<input type="text" name="q" placeholder="🔎 輸入名字搜尋偶像、餐廳、景點或計劃...">
-</form>
-</div>
+    <!-- 驚悚爬行的小蜘蛛群 -->
+    <div class="gothic-spider" style="left: 8%; top: 20%; font-size: 45px; animation-delay: 0.5s;">🕷️</div>
+    <div class="gothic-spider" style="right: 10%; top: 25%; font-size: 40px; animation-delay: 1.2s;">🕷️</div>
+    <div class="gothic-spider" style="left: 6%; bottom: 25%; font-size: 50px; animation-delay: 1.8s;">🕷️</div>
+    <div class="gothic-spider" style="right: 7%; bottom: 30%; font-size: 42px; animation-delay: 2.5s;">🕷️</div>
 
-<div class="skz-section">
-<p style="font-size: 1.1rem; color: #cca3ff; margin-bottom: 12px; letter-spacing: 1px;">🔮 아 키 嘅音樂收藏與 Stray Kids 最愛神曲 🔮</p>
+    <style>
+    /* 蜘蛛網與蜘蛛的微幅晃動動畫 */
+        @keyframes webFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(4deg); }
+        }
+        @keyframes spiderCrawl {
+            0%, 100% { transform: scale(1) translateY(0); }
+            50% { transform: scale(1.15) translateY(-5px); filter: drop-shadow(0 0 8px #ff5555); }
+        }
+        /* 酷炫會員按鈕的霓虹呼吸動畫 */
+        @keyframes coolButtonPulse {
+            0%, 100% { box-shadow: 0 0 15px #bd93f9, inset 0 0 5px #bd93f9; }
+            50% { box-shadow: 0 0 30px #ff79c6, inset 0 0 15px #ff79c6; transform: scale(1.03); }
+        }
 
-<a href="https://udio.com" target="_blank" class="gothic-btn">
-<span>🎵 Play Original AI Music</span>
-</a>
+        .blink-jump { animation: halloweenBlink 1.5s infinite ease-in-out, floatJump 2s infinite ease-in-out; display: inline-block; }
+        .only-blink { animation: halloweenBlink 2s infinite ease-in-out; display: inline-block; }
+        .neon-box { animation: neonPulse 3s infinite ease-in-out; }
+        
+        /* 蜘蛛網與蜘蛛的專用類別 */
+        .gothic-web { position: fixed; opacity: 0.22; z-index: 1; pointer-events: none; animation: webFloat 4.5s infinite ease-in-out; color: #6272a4; }
+        .gothic-spider { position: fixed; opacity: 0.28; z-index: 1; pointer-events: none; animation: spiderCrawl 3s infinite ease-in-out; }
 
-<!-- 🎯 完美替換：一 click 直接精準跳轉到官方官方 MV 歌曲網頁 🎯 -->
-<a href="https://youtu.be/dBDkYofMUs4?si=6nYS8pVm8Ju3ii3t" target="_blank" class="gothic-btn">
-<span>⚡ 락 樂 LALALALA</span>
-</a>
-<a href="https://www.youtube.com/watch?v=0P0aQreFs8w" target="_blank" class="gothic-btn">
-<span>💥 Chk Chk Boom</span>
-</a>
-<a href="https://www.youtube.com/watch?v=jYSlpC6Ud2A" target="_blank" class="gothic-btn">
-<span>❣️ Case 143</span>
-</a>
+        /* 彈窗與燈箱通用背底層 */
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 5, 15, 0.85); z-index: 10000; justify-content: center; align-items: center; }
+        .gothic-modal { background: rgba(25, 15, 35, 0.95); border: 2px solid #bd93f9; border-radius: 15px; padding: 25px; width: 320px; box-shadow: 0 0 25px #bd93f9; text-align: center; color: white; position: relative; }
+        .gothic-input { width: 90%; padding: 10px; margin: 10px 0; border-radius: 20px; border: 1px solid #ff79c6; background: rgba(0,0,0,0.5); color: white; outline: none; }
+    </style>
+
+    <!-- ==================== 3. 核心 8 張相片網格 + 右上角型酷巨大化會員登入按鈕 ==================== -->
+        <div style="position: relative; max-width: 600px; width: 100%;">
+            
+            <!-- 型酷升級：加大版哥德式暗黑霓虹會員按鈕（隨意擺放在網格右上方的絕佳空地，極具儀式感！） -->
+            <div style="position: absolute; right: -50px; top: -70px; z-index: 999;">
+                <button onclick="openLoginModal()" class="neon-box" style="background: linear-gradient(135deg, #290749de, #6a0bae); border: 4px solid #970490d8; color: rgba(121, 5, 96, 0.86); padding: 12px 28px; border-radius: 32px; font-size: 20px; font-weight: bold; letter-spacing: 1px; cursor: pointer; animation: coolButtonPulse 2.5s infinite ease-in-out; transition: all 0.3s;" onmouseover="this.style.color='#da087f'; this.style.transform='scale(1.08)';" onmouseout="this.style.color='#df0b72'; this.style.transform='scale(1)';">
+                    🔮 🔒 MEMBERSHIP 🎃 🦇
+                </button>
+            </div>
+
+
+
+    <!-- 主容器（完美繼承你截圖中最愛的畫面與霓虹排版） -->
+    <div class="main-container" style="position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; text-align: center;">
+        
+        
+        <!-- 【第 1 行】符號會閃爍著跳動 -->
+        <div class="rating-stars blink-jump" style="font-size: 26px; color: #a70762; margin-bottom: 10px; letter-spacing: 5px;">
+            ♡ ★ ★ ★❣️★ ★ ★ ♡
+        </div>
+
+        <!-- 【第 2 行】原本的歡迎標題 -->
+        <h1 style="color: #e8196fee; font-size: 32px; margin-bottom: 5px; text-shadow: 0 0 10px #e10c65e9;">
+            🎃🦹‍♀️♡★안녕하세요! 歡迎來到我 아키 嘅 도깨비 世界！★♡🧚‍♀️👻
+        </h1>
+
+        <!-- 【第 3 行】文字加符號公仔都會閃爍著跳動 -->
+        <div class="rating-stars blink-jump" style="font-size: 24px; color: #ff5555; margin-bottom: 15px; font-weight: bold;">
+            🎃☆★❤️♡ㅎㅎㅎ❄️ ★ 도깨비 ❣️☆♡★DrEaM★♡☆
+        </div>
+        
+        <!-- 【第 4 行】介紹內文 -->
+        <p style="color: #128db5; font-size: 18px; font-weight: bold; margin-bottom: 30px;">
+            會為大家介紹我最愛嘅☆★❣️🕸️ ★
+            <!-- 【第 6 行（內文第2行）】只有英文字中間符號會閃爍 -->
+            <span style="color: #ff79c6;">Korean World with K-Pop</span> 
+            <span class="only-blink" style="color: #ff79c6; margin: 0 5px;">♡</span> 
+            <span style="color: #8be9fd;">Cosplay</span> 
+            <span class="only-blink" style="color: #12afb7f4; margin: 0 5px;">♡</span> 
+            <span style="color: #50fa7b;">Travel</span> 
+            <span class="only-blink" style="color: #50fa7b; margin: 0 5px;">♡</span> 
+            <span style="color: #17cbd4e4;">EveryThing</span> 👻☆★💛❣️🎃♡🐻♥︎👻★☆
+        </p>
+
+        <!-- 3. 【超級助教特製：搜尋結果公告欄】（搜尋時自動由上而下彈出） -->
+        {% if search_result %}
+        <div class="neon-box" style="background: rgba(30, 20, 40, 0.95); border: 2px solid #ff79c6; border-radius: 15px; padding: 20px; margin: 0 auto 30px auto; max-width: 600px;">
+            <h2 style="color: #ea476ae9; font-size: 24px; margin-bottom: 10px;">🎃 搜尋結果：{{ search_result.name }}</h2>
+            {% if search_result.img_url %}
+            <img src="{{ search_result.img_url }}" style="max-width: 80%; max-height: 250px; border-radius: 10px; margin-bottom: 10px;">
+            {% endif %}
+            <p style="color: #12d698ea; font-size: 16px;">{{ search_result.desc }}</p>
+            <a href="/" style="display: inline-block; margin-top: 10px; background: #ff5555; color: white; padding: 8px 15px; border-radius: 20px; text-decoration: none; font-weight: bold;">🏠 Back 返回首頁☆★</a>
+        </div>
+        {% endif %}
+
+        <!-- 4. 核心 8 張相片的網格方陣（完全依照你最愛的置中排版） -->
+        <div class="idol-gallery" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; max-width: 600px; margin-bottom: 30px; justify-content: center; align-items: center;">
+            <img src="/static/idol1.jpg" onclick="openLightbox(this.src)" style="width: 120px; height: 120px; object-fit: cover; border-radius: 10px; border: 2px solid #bd93f9; cursor: pointer; transition: 0.3s;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'" alt="idol1">
+            <img src="/static/idol2.jpg" onclick="openLightbox(this.src)" style="width: 120px; height: 120px; object-fit: cover; border-radius: 10px; border: 2px solid #bd93f9; cursor: pointer; transition: 0.3s;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'" alt="idol2">
+            <img src="/static/idol3.jpg" onclick="openLightbox(this.src)" style="width: 120px; height: 120px; object-fit: cover; border-radius: 10px; border: 2px solid #bd93f9; cursor: pointer; transition: 0.3s;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'" alt="idol3">
+            <img src="/static/idol4.jpg" onclick="openLightbox(this.src)" style="width: 120px; height: 120px; object-fit: cover; border-radius: 10px; border: 2px solid #bd93f9; cursor: pointer; transition: 0.3s;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'" alt="idol4">
+            <img src="/static/idol5.jpg" onclick="openLightbox(this.src)" style="width: 120px; height: 120px; object-fit: cover; border-radius: 10px; border: 2px solid #bd93f9; cursor: pointer; transition: 0.3s;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'" alt="idol5">
+            <img src="/static/idol6.jpg" onclick="openLightbox(this.src)" style="width: 120px; height: 120px; object-fit: cover; border-radius: 10px; border: 2px solid #bd93f9; cursor: pointer; transition: 0.3s;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'" alt="idol6">
+            <img src="/static/idol7.jpg" onclick="openLightbox(this.src)" style="width: 120px; height: 120px; object-fit: cover; border-radius: 10px; border: 2px solid #bd93f9; cursor: pointer; transition: 0.3s;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'" alt="idol7">
+            <img src="/static/idol8.png" onclick="openLightbox(this.src)" style="width: 120px; height: 120px; object-fit: cover; border-radius: 10px; border: 2px solid #bd93f9; cursor: pointer; transition: 0.3s;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'" alt="idol8">
+        </div>
+
+        <!-- 5. 位於相片正下方的搜尋框與功能白星 ★ -->
+        <div class="search-container" style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 25px;">
+            <form action="/search/" method="get" style="display: flex; align-items: center; gap: 10px;">
+                <input type="text" name="q" placeholder="🔎 輸入名字搜尋偶像、餐廳、景點或計劃..." value="{{ query }}" style="width: 320px; padding: 10px 20px; border-radius: 25px; border: 2px solid #ff79c6; background: rgba(0,0,0,0.6); color: white; outline: none;">
+            </form>
+            <button class="random-star-btn" style="background: none; border: 2px solid #ff79c6; color: white; font-size: 24px; padding: 5px 15px; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; transition: 0.3s;" onmouseover="this.style.transform='rotate(180deg) scale(1.1)'" onmouseout="this.style.transform='rotate(0deg) scale(1)'">★</button>
+        </div>
+
+        <!-- ✨ 【型酷升級】STRAY KIDS YOUTUBE 分享 BUTTON 區 ✨ -->
+        <div style="margin-bottom: 30px;">
+            <a href="https://youtube.com" target="_blank" style="display: flex; align-items: center; gap: 12px; background: linear-gradient(135deg, #ff0055, #9900ff); color: white; padding: 12px 30px; border-radius: 50px; font-weight: bold; text-decoration: none; font-size: 16px; letter-spacing: 1px; box-shadow: 0 0 15px #ff0055, 0 0 30px rgba(153,0,255,0.5); transition: all 0.4s ease-in-out;" onmouseover="this.style.transform='translateY(-3px) scale(1.05)'; this.style.boxShadow='0 0 25px #ff0055, 0 0 50px #9900ff';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 0 15px #ff0055, 0 0 30px rgba(153,0,255,0.5)';">
+                <span style="font-size: 20px;">▶️</span> WATCH STRAY KIDS ON YOUTUBE ⚡🎸
+            </a>
+        </div>
+
+        <!-- 6. 最底部的音樂播放功能清單區 -->
+        <div class="music-container neon-box" style="background: rgba(40, 30, 60, 0.85); border: 2px solid #bd93f9; border-radius: 15px; padding: 15px; width: 350px; text-align: left; margin: 0 auto;">
+            <h3 style="color: #ba11d8; font-size: 16px; margin-bottom: 10px; text-align: center;">🔮 아키 ❣️嘅音樂收藏與 ❣️Stray Kids 最愛神曲 ❣️🪻</h3>
+            <button style="width: 100%; margin-bottom: 8px; background: #6272a4; color: white; padding: 8px; border: none; border-radius: 10px; text-align: left; cursor: pointer; transition: 0.2s;" onmouseover="this.style.background='#44475a'" onmouseout="this.style.background='#6272a4'">🎵 Play Original AI Music</button>
+            <button style="width: 100%; margin-bottom: 8px; background: #ff79c6; color: white; padding: 8px; border: none; border-radius: 10px; text-align: left; cursor: pointer; transition: 0.2s;" onmouseover="this.style.background='#ff92df'" onmouseout="this.style.background='#ff79c6'">⚡ 락 樂 LALALALA</button>
+            <button style="width: 100%; margin-bottom: 8px; background: #ffb86c; color: white; padding: 8px; border: none; border-radius: 10px; text-align: left; cursor: pointer; transition: 0.2s;" onmouseover="this.style.background='#ffcb8d'" onmouseout="this.style.background='#ffb86c'">💥 Chk Chk Boom</button>
+
+</body>

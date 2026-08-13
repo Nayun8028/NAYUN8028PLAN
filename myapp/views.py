@@ -1,71 +1,111 @@
+# ==================== 【請務必貼在 views.py 的最頂端第 1 行】 ====================
 from django.shortcuts import render
-from django.db.models import Q
-from .models import IdolData, KoreanRestaurant, TravelAndCosplay
+from django.http import JsonResponse
 
+# ==============================================================================
+# 底下才是你原本寫的 def index_view(request): ...
+# 請確保第 1 到 27 行長這樣（尾巴只有一個 }）：
 def index_view(request):
-    if IdolData.objects.count() == 0:
-        idols = ["Bang Chan", "Lee Know", "Changbin", "Hyunjin", "HAN", "Felix", "Seungmin", "I.N"]
-        for i, name in enumerate(idols, 1):
-            photo_name = f"idol.jpg" if i == 1 else (f"idol8.png" if i == 8 else f"idol{i}.jpg")
-            IdolData.objects.create(
-                name=name,
-                photo=photo_name,
-                youtube_url="https://youtube.com",
-                description=f"Stray Kids 隊員 {name}！帥氣滿分，在아키嘅萬聖節歌德網頁中魅惑登場！"
-            )
-
-    restaurants = [
-        ("魔女廚房 Witch's Kitchen (弘大店)", "rest1.jpg", "15,000 ~ 25,000 韓元", "首爾麻浦區臥牛山路21路31-10", True),
-        ("歌德吸血鬼主題咖啡廳 Vampire Cafe", "rest2.jpg", "8,000 ~ 15,000 韓元", "首爾江南區新沙洞歌德地下街", True),
-        ("明洞不切片傳統萬聖烤肉", "rest3.jpg", "30,000 ~ 50,000 韓元", "首爾中區明洞10路23號", False),
-    ]
-    for name, photo, price, addr, cos in restaurants:
-        KoreanRestaurant.objects.create(name=name, photo=photo, price_range=price, address=addr, cosplay_friendly=cos)
-
-    cosplay_data = [
-        ("樂天世界萬聖節殭屍之夜", "COSPLAY", "樂天世界", "超級適合穿著長袍歌德風或 Cosplay 動漫服飾入場外拍，氣氛滿分！"),
-        ("景福宮夜間特別開放", "COSPLAY", "景福宮", "穿著韓服或改良式 Cosplay 服裝，在夜間幽暗燈光下拍攝極具古風神祕感。"),
-        ("DDP 東大門設計廣場 LED 玫瑰花海", "COSPLAY", "東大門DDP", "充滿科幻、未來感與現代交織的絕佳 Cosplay 攝影聖地。"),
-        ("梨泰院萬聖節街頭盛宴", "COSPLAY", "梨泰院", "全韓國萬聖節氛圍最濃郁的地方，各路 Coser群魔亂舞非常震撼！"),
-        ("釜山甘川文化村外拍群體", "CODPLAY", "釜山甘川村", "繽紛的小屋錯落有致，非常適合拍攝色彩鮮豔、童話感十足的 Cosplay 角色。"),
-    ]
-    for title, cat, loc, content in cosplay_data:
-        TravelAndCosplay.objects.create(title=title, category=cat, location=loc, content=content)
-
-    travel_plans = [
-        ("5天4夜弘大與梨泰院萬聖節狂歡計劃", "PLAN", "首爾弘大/梨泰院", "入住灰紫色調設計旅店，深度體驗韓國在地萬聖節文化與 K-Pop 聖地巡禮。"),
-        ("釜山海雲台夢幻海景與動漫展聖地巡禮", "PLAN", "釜山", "結合海雲台絕美海景與釜山年度動漫盛事的夢幻特調行程。"),
-        ("濟州島神祕森林與鬼怪道路探險計劃", "PLAN", "濟州島", "走訪充滿傳說的神祕黑色森林，最適合拍出帶有空靈寂靜感的大片。"),
-    ]
-    for title, cat, loc, content in travel_plans:
-        TravelAndCosplay.objects.create(title=title, category=cat, location=loc, content=content)
-
-    notices = [
-        ("韓國 Cosplay 在公眾場合外拍的注意事項", "NOTICE", "韓國全境", "韓國對偷拍與肖像權法律極為嚴格，拍攝前必須取得路人同意。道具武器移動時必須裝袋。"),
-        ("萬聖節出遊韓國的交通與防踩踏安全指南", "NOTICE", "大型活動現場", "熱門節慶務必注意人流管制，避開狹窄斜坡。隨身攜帶 T-money 卡。"),
-    ]
-    for title, cat, loc, content in notices:
-            TravelAndCosplay.objects.create(title=title, category=cat, location=loc, content=content)
-
+    """最基礎的首頁功能，讓 urls.py 可以順利找到它"""
+    from django.shortcuts import render
     return render(request, 'myapp/index.html')
 
-def search_view(request):
-    query = request.GET.get('q', '').strip()
-    if query:
-        idol_results = IdolData.objects.filter(Q(name__icontains=query) | Q(description__icontains=query))
-        restaurant_results = KoreanRestaurant.objects.filter(name__icontains=query)
-        travel_results = TravelAndCosplay.objects.filter(Q(title__icontains=query) | Q(content__icontains=query))
-    else:
-        idol_results, restaurant_results, travel_results = [], [], []
+skz_data = {
+    'stray kids': {
+        'name': 'Stray Kids (스트레이 키즈)',
+        'img_url': '/static/skz_all.jpg',
+        'desc': 'JYP 旗下的世界級男團！成員包括方燦、Lee Know、彰彬、鉉辰、HAN、Felix、昇玟、I.N，音樂充滿強烈中毒性！⚡'
+    },
+    'felix': {
+        'name': 'Felix (필릭스)',
+        'img_url': '/static/felix.jpg',
+        'desc': '擁有反轉魅力的低音炮 Rapper，笑起來像天使一樣溫暖的龍馥小波卡！🐥'
+    },
+    'lee know': {
+        'name': 'Lee Know (리노)',
+        'img_url': '/static/idol7.jpg',
+        'desc': '四次元魅力的舞蹈隊長，超級愛貓的貓咪大師！🐱'
+    },
+        'hyunjin': {
+        'name': '鉉辰 (현진)',
+        'img_url': '/static/hyunjin.jpg', # 確保你 static 資料夾有這張帥照
+        'desc': 'Stray Kids 的視覺中心與主舞！舞台魅力爆棚，藝術感滿滿的當代藝術家王子！👑'
+    },
+    'bang chan': {
+        'name': '方燦 (방찬 - Bang Chan)',
+        'img_url': '/static/bangchan.jpg', # 確保 static 有他的照片
+        'desc': 'Stray Kids 的偉大隊長與全能製作人！3RACHA 的核心成員，守護著團員與 STAY 的暖心大狼！🐺✨'
+    },
 
-    context = {
-        'query': query,
-        'idols': idol_results,
-        'restaurants': restaurant_results,
-        'travels': travel_results   
+    '萬聖節': {
+        'name': '🎃 萬聖節限定夢幻計畫',
+        'img_url': '/static/idol8.png',
+        'desc': '走訪梨泰院、弘大商圈的萬聖節 Cosplay 狂歡夜，並到愛寶樂園或樂天世界體驗最刺激的殭屍大遊行！🧛'
     }
-    return render(request, 'myapp/search_results.html', context)
+} # 👈 確保整段資料袋的結尾只有這一個大括號，沒有第 28 行了！
+# ==================== 【請接著貼在第 29 行下方】 ====================
+
+def search_view(request):
+    """２. 搜尋功能：讓使用者輸入關鍵字後，能模糊比對出正確結果"""
+    query = request.GET.get('q', '').lower()  # 轉小寫方便比對
+    search_result = None
+    
+    if query:
+        for key, value in skz_data.items():
+            if key in query:
+                search_result = value
+                break
+                
+    # 請在第 42、43、44、45 行的「最前面」，各補上 4 個空格（或是選取這 4 行，按一下鍵盤的 Tab 鍵）：
+    return render(request, 'myapp/index.html', {
+                'search_result': search_result,
+                'query': query,
+            })
+
+
+
+def random_plan_api(request):
+    """３. 白星功能：每次被點擊時，都隨機抽 1 筆完美格式的夢幻計畫回傳"""
+    import random
+    from django.http import JsonResponse
+    
+    # 建立 20 筆完全標準、滿足前端檢查的完美 JSON 資料清單
+    perfect_20_plans = []
+    titles = [
+        "① 首爾弘大 Cosplay 聖地巡禮", "② 萬聖節限定！SKZOO 快閃店", 
+        "③ 漢江公園吃熱騰騰的泡麵", "④ 聖水洞探店與文青咖啡廳", 
+        "⑤ Stray Kids 錄音室外幸運偶遇", "⑥ 東大門不夜城深夜購物狂歡", 
+        "⑦ 景福宮穿韓服一日穿越劇", "⑧ 樂天世界萬聖節殭屍大遊行", 
+        "⑨ 明洞小吃攤一路吃到飽", "⑩ 釜山海雲台看海聽海浪聲", 
+        "⑪ 追隨 Lee Know 的貓咪咖啡廳", "⑫ 大邱烤腸一條街瘋狂美食客", 
+        "⑬ 濟州島漢拿山橘子園採果樂", "⑭ 梨泰院異國風情狂歡萬聖夜", 
+        "⑮ 三清洞散步尋找文藝雜貨店", "⑯ 仁川童話村夢幻拍照牆", 
+        "⑰ N首爾塔鎖上情侶鎖看全景", "⑱ 廣藏市場生牛肉與生章魚挑戰", 
+        "⑲ 追星必去 K-Star ROAD 熊熊打卡", "⑳ 坪和市場挖寶復古 Cosplay"
+    ]
+    
+    for i in range(20):
+        perfect_20_plans.append({
+            "id": i + 1,
+            "title": titles[i],
+            "category": "Travel" if i % 2 == 0 else "K-Pop",
+            "location": "首爾",
+            "content": "探索充滿年輕活力的夢幻行程！✨",
+            "name": titles[i],
+            "fields": {
+                "title": titles[i],
+                "category": "Travel",
+                "location": "首爾",
+                "content": "探索充滿年輕活力的夢幻行程！✨"
+            }
+        })
+        
+    return JsonResponse(perfect_20_plans, safe=False)
+
+# ==================== 【請貼在 views.py 的最底部】 ====================
 
 def detail_view(request, item_id):
+    """４. 詳細頁功能：讓 urls.py 可以順利找到它，避免後台報錯"""
+    from django.shortcuts import render
     context = {"item_id": item_id, "type": "樣本資料項目"}
     return render(request, 'myapp/search_results.html', context)
