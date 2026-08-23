@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>計畫詳情與內容管理 (CRUD)</title>
+    <style>
+    body { background-color: #0a0a12; color: #fff; font-family: sans-serif; text-align: center; padding: 50px; }
+    .box { background: #151522; border: 2px solid #00f2fe; border-radius: 20px; padding: 40px; display: inline-block; max-width: 600px; box-shadow: 0 0 20px #00f2fe; }
+    .btn { padding: 10px 20px; border-radius: 10px; text-decoration: none; font-weight: bold; margin: 10px; display: inline-block; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        {% if plan %}
+            <h1>✨ 計劃詳情 (Read)</h1>
+            <h2>Plan {{ plan.plan_number }}: {{ plan.title }}</h2>
+            <p style="color: #bd93f9; font-size: 1.2rem;">🧝‍♀️ Cosplay 角色: {{ plan.character_name }}</p>
+            <p style="line-height: 1.6; text-align: left; background: rgba(0,0,0,0.4); padding: 15px; border-radius: 10px;">{{ plan.description }}</p>
+
+            <a href="{% url 'plan_update' plan.plan_number %}" class="btn" style="background: #ff9900; color: #111;">[⚡ 修改計畫 Update]</a>
+            <a href="{% url 'plan_delete' plan.plan_number %}" class="btn" style="background: #ff5555; color: white;">[❌ 刪除計畫 Delete]</a>
+        {% else %}
+            <h1>📝 填寫計畫表單 (Create / Update)</h1>
+            <form method="POST">
+                {% csrf_token %}
+                <p>計畫編號: <input type="number" name="plan_number" value="{{ plan.plan_number }}" style="padding:8px; width:80%;"></p>
+                <p>計畫名稱: <input type="text" name="title" value="{{ plan.title }}" style="padding:8px; width:80%;"></p>
+                <p>角色名稱: <input type="text" name="character_name" value="{{ plan.character_name }}" style="padding:8px; width:80%;"></p>
+                <p>詳細行程描述: <br><textarea name="description" style="width:80%; height:100px; background:#000; color:#fff; border:1px solid #00f2fe;">{{ plan.description }}</textarea></p>
+                <button type="submit" class="btn" style="background:#00f2fe; color:#111; border:none; cursor:pointer;">🔮 穩穩確認提交</button>
+            </form>
+        {% endif %}
+        <br><br><a href="{% url 'plan_list' %}" style="color: #a18cd1; text-decoration: none;">返回計畫大廳總覽</a>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>20個萬聖節夢幻計畫大廳</title>
+    <style>
+        body { background-color: #0a0a12; color: #fff; font-family: sans-serif; text-align: center; padding: 40px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 1000px; margin: 30px auto; }
+        .item { background: #151522; border: 2px solid #ff9900; border-radius: 15px; padding: 15px; box-shadow: 0 0 10px #ff9900; }
+    </style>
+</head>
+<body>
+    <h1>🎃 20個萬盛節 Cosplay 夢幻旅遊計劃大廳</h1>
+    <a href="{% url 'plan_create' %}" style="background: #ff9900; color: #111; padding: 10px 20px; border-radius: 10px; font-weight: bold; text-decoration: none;">[➕ 建立新計畫 Create]</a>
+
+    <div class="grid">
+        {% for plan in plans %}
+        <div class="item">
+            <h3>Plan {{ plan.plan_number }}: {{ plan.title }}</h3>
+            <p style="color: #bd93f9;">🎭 角色：{{ plan.character_name }}</p>
+            <a href="{% url 'plan_detail' plan.plan_number %}" style="color: #00f2fe; text-decoration: none; font-weight: bold;">查看詳情 (Read) →</a>
+        </div>
+        {% empty %}
+            <p>🔮 正在等待主人前往後台或 Web 介面新增 20 個精美計畫...</p>
+        {% endfor %}
+    </div>
+    <br><a href="{% url 'index' %}" style="color: #a18cd1; text-decoration: none;">🔙 返回 4D 世界首頁</a>
+</body>
+</html>
+

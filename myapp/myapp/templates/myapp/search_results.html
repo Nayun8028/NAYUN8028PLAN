@@ -2,91 +2,117 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8">
-<title>搜尋結果 - 아키 嘅萬聖歌德世界</title>
-<style>
-@import url('https://googleapis.com');
-body {
-margin: 0; padding: 40px 20px; min-height: 100vh;
-background-color: #2e2a36; color: #e0daeb;
-font-family: 'Noto Sans TC', sans-serif;
-text-align: center;
-}
-h1 { font-family: 'Creepster', cursive; font-size: 3rem; color: #cca3ff; text-shadow: 0 0 10px #6a0dad; }
-.back-btn { display: inline-block; margin-bottom: 30px; padding: 10px 20px; background: #6a0dad; color: #fff; border-radius: 20px; text-decoration: none; border: 1px solid #cca3ff; transition: all 0.3s; }
-.back-btn:hover { background: #cca3ff; color: #2e2a36; box-shadow: 0 0 10px #cca3ff; }
-.result-section { margin: 40px auto; max-width: 800px; text-align: left; background: rgba(36, 32, 43, 0.8); padding: 20px; border-radius: 15px; border: 1px solid #6a0dad; }
-.result-section h2 { color: #ff94b8; border-bottom: 1px solid #6a0dad; padding-bottom: 5px; }
-.item-card { display: flex; align-items: center; gap: 20px; margin: 15px 0; padding: 10px; border-bottom: 1px dashed rgba(204,163,255,0.2); }
-.item-card img { width: 80px; height: 80px; object-fit: cover; border-radius: 10px; border: 1px solid #cca3ff; }
-.no-result { color: #888; font-style: italic; }
-</style>
+    <meta charset="UTF-8">
+    <title>Aki 萬聖節 K-Pop 搜尋結果核心防線</title>
+    <!-- 🔒 鋼鐵注入：今天早上與助教共同創作的黑金菱形格紋全域樣式 -->
+    <style>
+        * { box-sizing: border-box !important; }
+        body {
+            background-color: #0d0b14 !important;
+            background-image: linear-gradient(315deg, #0d0b14 0%, #1a162b 74%) !important;
+            color: #ffffff !important;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+            margin: 0; padding: 0; overflow-x: hidden;
+        }
+        .main-container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 20px; }
+        .game-zone-panel { background: rgba(20, 15, 35, 0.9) !important; border-radius: 15px !important; margin: 20px auto !important; }
+        .result-section { border: 2px solid #ff79c6; background: rgba(30, 20, 48, 0.85); border-radius: 20px; padding: 25px; margin: 25px auto; max-width: 680px; box-shadow: 0 0 25px #ff79c6; }
+        .item-card { display: flex; gap: 20px; background: rgba(0,0,0,0.4); padding: 15px; border-radius: 12px; margin-top: 15px; border: 1px solid rgba(255,121,198,0.3); }
+        .item-card img { width: 120px !important; height: 120px !important; object-fit: cover !important; border-radius: 10px !important; border: 2px solid #ff79c6 !important; }
+    </style>
 </head>
 <body>
 
-<h1>Search Results</h1>
-<a href="{% url 'index_view' %}" class="back-btn">🔮 返回 🎃아키🎃 首頁</a>
+<div class="main-container">
+    <!-- 🔑 MEMBERSHIP LOGIN 按鈕區塊 -->
+    <div style="display: flex; justify-content: flex-end; width: 100%; padding-right: 20px; margin-top: 15px; margin-bottom: 20px;">
+        <a href="{% url 'dashboard' %}" style="text-decoration: none;">
+            <button type="button" style="background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%); border: 3px solid #ff79c6; color: white; padding: 10px 20px; border-radius: 30px; font-size: 1rem; font-weight: bold; letter-spacing: 2px; cursor: pointer; box-shadow: 0 0 15px #ff79c6;">🔑 MEMBERSHIP LOGIN 👤</button>
+        </a>
+    </div>
 
-<p>您搜尋的關鍵字是：<strong>"{{ query }}"</strong></p>
+    <div style="text-align: center; margin-bottom: 30px;">
+        <a href="/" style="color: #00f2fe; text-decoration: none; font-weight: bold; font-size: 1.1rem;">📂 返回首頁 ★ 重新點擊</a>
+    </div>
 
-<!-- 偶像搜尋結果 -->
-<div class="result-section">
-<h2>8個 Stray Kids 偶像資料</h2>
-{% if idols %}
-{% for idol in idols %}
-<div class="item-card">
-<img src="{% static idol.photo %}" alt="{{ idol.name }}">
-<div>
-<h3>{{ idol.name }}</h3>
-<p>{{ idol.description }}</p>
-<a href="{{ idol.youtube_url }}" target="_blank" style="color: #ff94b8;">🎵 點擊觀看 YouTube 歌曲分享</a>
-</div>
-</div>
-{% endfor %}
-{% else %}
-<p class="no-result">沒有找到相關的偶像資料。</p>
-{% endif %}
-</div>
-
-<!-- 餐廳搜尋結果 -->
-<div class="result-section">
-<h2>① 韓國特色餐廳 (Cosplay友善)</h2>
-{% if restaurants %}
-{% for rest in restaurants %}
-<div class="item-card">
-<img src="{% static rest.photo %}" alt="{{ rest.name }}">
-<div>
-<h3>{{ rest.name }}</h3>
-<p><strong>💰 價錢範圍：</strong>{{ rest.price_range }}</p>
-<p><strong>📍 餐廳地址：</strong>{{ rest.address }}</p>
-</div>
-</div>
-{% endfor %}
-{% else %}
-<p class="no-result">沒有找到相關的韓國餐廳。</p>
-{% endif %}
+    <!-- 📊 搜尋結果主體 -->
+    <div class="result-section">
+        <h2 style="color: #ff79c6; text-shadow: 0 0 10px #ff79c6; margin-top:0;">🔍 萬聖節 K-Pop 數據搜尋結果</h2>
+        {% if results %}
+            {% for item in results %}
+                <div class="item-card">
+                    <img src="{{ item.img|default:'/static/skz_all.jpg' }}" alt="{{ item.name }}">
+                    <div>
+                        <h3 style="color: #00f2fe; margin-top: 0;">{{ item.name }}</h3>
+                        <p style="line-height: 1.6; color: #eee;">{{ item.desc }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <!-- 🔮 傳送門提示：當查無資料時，完美保留你最愛的傳送門粉紅外框！ -->
+            <div style="border: 2px dashed #ff0055; padding: 20px; border-radius: 12px; background: rgba(255,0,85,0.05); text-align: center;">
+                <p style="color: #ff0055; font-weight: bold; font-size: 1.1rem;">👻 傳送門提示 👻</p>
+                <p>「神秘咒語 尚未登記...」</p>
+                <p style="color: #aaa; font-size: 0.9rem;">💡 提示：試著搜尋 Lee Know, Felix, 方燦, 鉉辰, 彰彬 或 餐廳 吧！</p>
+            </div>
+        {% endif %}
+    </div>
 </div>
 
-<!-- 旅遊與Cosplay搜尋結果 -->
-<div class="result-section">
-<h2>CosPlay 地點 / 夢幻旅遊計劃 / 注意事項</h2>
-{% if travels %}
-{% for travel in travels %}
-<div class="item-card">
-{% if travel.photo %}
-<img src="{% static travel.photo %}" alt="{{ travel.title }}">
-{% endif %}
-<div>
-<h3>{{ travel.title }}</h3>
-<p style="color: #cca3ff;">📍 地點：{{ travel.location|default:"韓國各地" }}</p>
-<p>{{ travel.content }}</p>
+<!-- ⚡ 萬聖節靈魂特效：6隻會動的蜘蛛 + 隨機3色加粗蜘蛛網，強制在搜尋頁面同步開眼！ -->
+<canvas id="halloween-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 2;"></canvas>
+
+<div id="spider-matrix" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9999;">
+    <div class="halloween-spider" style="position: absolute; font-size: 2.3rem; display: block; user-select: none;">🕷️</div>
+    <div class="halloween-spider" style="position: absolute; font-size: 2.3rem; display: block; user-select: none;">🕷️</div>
+    <div class="halloween-spider" style="position: absolute; font-size: 2.3rem; display: block; user-select: none;">🕷️</div>
+    <div class="halloween-spider" style="position: absolute; font-size: 2.3rem; display: block; user-select: none;">🕷️</div>
+    <div class="halloween-spider" style="position: absolute; font-size: 2.3rem; display: block; user-select: none;">🕷️</div>
+    <div class="halloween-spider" style="position: absolute; font-size: 2.3rem; display: block; user-select: none;">🕷️</div>
 </div>
-</div>
-{% endfor %}
-{% else %}
-<p class="no-result">沒有找到相關的旅遊或 Cosplay 分享。</p>
-{% endif %}
-</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // ① 今天早上一起創作的 2.5px 歌德風三色隨機蜘蛛網繪製
+        const cvs = document.getElementById('halloween-canvas');
+        if (cvs) {
+            cvs.width = window.innerWidth; cvs.height = window.innerHeight;
+            const ctx = cvs.getContext('2d');
+            const godGothicColors = ['rgba(157, 0, 255, 0.45)', 'rgba(200, 205, 215, 0.35)', 'rgba(255, 0, 127, 0.35)'];
+            ctx.strokeStyle = godGothicColors[Math.floor(Math.random() * godGothicColors.length)];
+            ctx.lineWidth = 2.5;
+            for (let i = 0; i < 8; i++) {
+                let cx = Math.random() * cvs.width; let cy = Math.random() * cvs.height; let maxRadius = 55;
+                for (let a = 0; a < Math.PI * 2; a += Math.PI / 4) {
+                    ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx + Math.cos(a) * maxRadius, cy + Math.sin(a) * maxRadius); ctx.stroke();
+                }
+                for (let r = 15; r <= maxRadius; r += 15) {
+                    ctx.beginPath();
+                    for (let a = 0; a <= Math.PI * 2 + 0.1; a += Math.PI / 4) {
+                        let x = cx + Math.cos(a) * r; let y = cy + Math.sin(a) * r;
+                        if (a === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+                    }
+                    ctx.stroke();
+                }
+            }
+        }
+
+        // ② 今天早上一起創作的 6 隻蜘蛛全域慢慢爬游走矩陣
+        const spiders = document.querySelectorAll('.halloween-spider');
+        let spiderPositions = Array.from({length: 6}, () => ({ x: Math.random() * (window.innerWidth - 150) + 50, y: Math.random() * (window.innerHeight - 200) + 50 }));
+
+        function animateAllSpiders() {
+            spiders.forEach((sp, i) => {
+                spiderPositions[i].x += (Math.random() - 0.5) * 80; spiderPositions[i].y += (Math.random() - 0.5) * 80;
+                if (spiderPositions[i].x < 50) spiderPositions[i].x = 50; if (spiderPositions[i].x > window.innerWidth - 120) spiderPositions[i].x = window.innerWidth - 150;
+                if (spiderPositions[i].y < 50) spiderPositions[i].y = 50; if (spiderPositions[i].y > window.innerHeight - 150) spiderPositions[i].y = window.innerHeight - 200;
+                sp.style.position = 'fixed'; sp.style.left = spiderPositions[i].x + 'px'; sp.style.top = spiderPositions[i].y + 'px';
+                sp.style.display = 'block'; sp.style.zIndex = '9999'; sp.style.transition = 'left 1.4s ease-in-out, top 1.4s ease-in-out';
+            });
+        }
+        setInterval(animateAllSpiders, 1500);
+    });
+</script>
 
 </body>
 </html>

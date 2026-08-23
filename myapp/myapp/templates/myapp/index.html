@@ -2,298 +2,263 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8">
-<title>아키嘅Halloween Cosplay ㅇㅈ韓國旅遊 ㅎㅎㅎ</title>
-<style>
-@import url('https://googleapis.com');
+    <meta charset="UTF-8">
+    <title>Aki 4D 도깨비 萬聖節 K-Pop 究極完勝神作</title>
+    <style>
+        * { box-sizing: border-box !important; }
+        /* 🌌 萬物歸位：專屬 Aki 昨天的暗黑高級菱格紋背景，100% 完璧歸趙重現！ */
+        body {
+            margin: 0; padding: 0; min-height: 100vh;
+            background-color: #2e2a36 !important;
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(36, 32, 43, 0.6) 20%, transparent 20%, transparent 80%, rgba(36, 32, 43, 0.6) 80%),
+                linear-gradient(45deg, rgba(26, 22, 33, 0.4) 25%, transparent 25%, transparent 75%, rgba(26, 22, 33, 0.4) 75%),
+                linear-gradient(-45deg, rgba(26, 22, 33, 0.4) 25%, transparent 25%, transparent 75%, rgba(26, 22, 33, 0.4) 75%) !important;
+            background-size: 60px 60px !important; background-position: 0 0, 30px 30px, 30px 30px !important;
+            background-attachment: fixed !important;
+            position: relative; color: #ffffff; font-family: 'Segoe UI', system-ui, sans-serif; overflow-x: hidden;
+        }
 
-body {
-margin: 0; padding: 0; min-height: 100vh;
-display: flex; justify-content: center; align-items: center;
-overflow-x: hidden;
-background-color: #2e2a36;
-background-image:
-radial-gradient(circle at 50% 50%, rgba(36, 32, 43, 0.6) 20%, transparent 20%, transparent 80%, rgba(36, 32, 43, 0.6) 80%),
-linear-gradient(45deg, rgba(26, 22, 33, 0.4) 25%, transparent 25%, transparent 75%, rgba(26, 22, 33, 0.4) 75%),
-linear-gradient(-45deg, rgba(26, 22, 33, 0.4) 25%, transparent 25%, transparent 75%, rgba(26, 22, 33, 0.4) 75%);
-background-size: 60px 60px; background-position: 0 0, 30px 30px, 30px 30px;
-}
+        .main-container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 20px; position: relative; z-index: 10; }
+        .search-container { text-align: center; margin-top: 25px; margin-bottom: 30px; }
+        
+        .gothic-neon-title {
+            color: #ff79c6;
+            text-shadow: 0 0 15px #ff79c6, 0 0 30px #ff79c6;
+            font-size: 2.2rem;
+            font-weight: bold;
+            animation: akiTextPulse 2s infinite alternate;
+        }
+        @keyframes akiTextPulse {
+            0% { transform: scale(1); text-shadow: 0 0 15px #ff79c6; }
+            100% { transform: scale(1.02); text-shadow: 0 0 25px #00f2fe, 0 0 30px #00f2fe; color: #00f2fe; }
+        }
 
-/* 🕸️ 終極大圖層：10個大蜘蛛網，改用 absolute 確保隨網頁滾動不縮水 🕸️ */
-.spider-web { position: absolute; font-size: 10rem; opacity: 0.16; color: #7519e5d4; pointer-events: none; z-index: 1; }
-.web-1 { top: 20px; left: 20px; font-size: 12rem; }
-.web-2 { top: 40px; right: 20px; font-size: 12rem; }
-.web-3 { top: 300px; left: 40px; transform: rotate(45deg); }
-.web-4 { top: 250px; right: 80px; transform: rotate(-30deg); }
-.web-5 { top: 550px; left: 15px; transform: rotate(15deg); }
-.web-6 { top: 600px; right: 30px; transform: rotate(80deg); }
-.web-7 { bottom: 200px; left: 50px; font-size: 8rem; }
-.web-8 { bottom: 150px; right: 60px; transform: rotate(-60deg); }
-/* 🆕 特別加強：正中央背景增加 2 個超級大蜘蛛網 */
-.web-9 { top: 40%; left: 50%; transform: translate(-50%, -50%) rotate(25deg); font-size: 15rem; opacity: 0.12; }
-.web-10 { bottom: 40%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg); font-size: 14rem; opacity: 0.12; }
+        .random-star-circle-btn {
+            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+            color: black;
+            border: 3px solid #ff79c6;
+            width: 80px; height: 80px;
+            border-radius: 50% !important;
+            font-size: 2.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 0 20px #00f2fe;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: inline-flex; justify-content: center; align-items: center;
+            padding: 0; outline: none;
+        }
+        .random-star-circle-btn:hover {
+            transform: scale(1.15) rotate(360deg) !important;
+            box-shadow: 0 0 35px #ff79c6 !important;
+            background: linear-gradient(135deg, #ff79c6 0%, #ff0055 100%) !important;
+            color: white !important;
+        }
 
-.main-container {
-text-align: center; color: #7f0f9cb7; font-family: 'Noto Sans TC', sans-serif;
-padding: 20px; position: relative; z-index: 2; width: 100%; max-width: 1000px;
-}
+        .master-gallery-grid {
+            display: grid !important;
+            grid-template-columns: repeat(4, 1fr) !important;
+            gap: 20px !important;
+            width: 100% !important;
+            margin: 30px auto !important;
+        }
+        .gallery-box-item {
+            width: 100% !important;
+            aspect-ratio: 1 / 1 !important;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            border: 3px solid #ff79c6;
+            box-shadow: 0 0 15px rgba(255,121,198,0.4);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: #1a162b;
+        }
+        .gallery-box-item:hover {
+            transform: scale(1.05) !important;
+            box-shadow: 0 0 25px #ff79c6 !important;
+        }
+        .gallery-box-item img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            display: block !important;
+        }
+        .gallery-text-label {
+            position: absolute; bottom: 0; left: 0; width: 100%;
+            background: rgba(0,0,0,0.75); color: white; text-align: center;
+            padding: 5px 0; font-size: 0.9rem; font-weight: bold; border-top: 1px solid #ff79c6;
+            z-index: 5;
+        }
 
-.rating-stars { font-size: 1.6rem; color: #d621e7e4; margin-bottom: 5px; letter-spacing: 6px; text-shadow: 0 0 10px #bd088de3; }
-
-/* 幻彩紫色閃爍星星動畫 */
-.rainbow-blink {
-display: inline-block;
-animation: rainbowGlow 2s infinite ease-in-out;
-}
-@keyframes rainbowGlow {
-0%, 100% { color: #cca3ff; filter: drop-shadow(0 0 5px #6a0dad); transform: scale(1); }
-33% { color: #ff94b8; filter: drop-shadow(0 0 12px #ff94b8); transform: scale(1.03); }
-66% { color: #b894ff; filter: drop-shadow(0 0 15px #cca3ff); transform: scale(0.97); }
-}
-
-h1 { font-size: 2.8rem; color: #cca3ff; margin-top: 15px; margin-bottom: 20px; font-weight: 700; text-shadow: 0 5px 5px rgba(0, 0, 0, 0.8), 0 0 10px #6a0dad; }
-.float-decoration { display: inline-block; font-size: 2.3rem; animation: pumpkinFloat 2.2s infinite ease-in-out; }
-.delay-1 { animation-delay: 0.4s; } .delay-2 { animation-delay: 0.8s; }
-
-.dream-blink {
-color: #d48da3; font-family: 'Creepster', cursive; font-size: 3rem;
-animation: dreamGlow 1.6s infinite ease-in-out; display: inline-block; margin-left: 10px;
-}
-@keyframes dreamGlow {
-0%, 100% { opacity: 0.4; filter: drop-shadow(0 0 2px rgba(0,0,0,0)); transform: scale(0.98); }
-50% { opacity: 1; filter: drop-shadow(0 0 15px #d48da3); transform: scale(1.05); }
-}
-
-.blink { animation: gothicBlink 1.2s infinite ease-in-out; color: #ff94b8; display: inline-block; }
-@keyframes gothicBlink { 0%, 100% { opacity: 0.2; } 50% { opacity: 1; filter: drop-shadow(0 0 12px #ff94b8); } }
-@keyframes pumpkinFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-
-.gothic-text { font-family: 'Creepster', cursive; font-size: 1.5rem; color: #ff94b8; letter-spacing: 2px; }
-p { font-size: 1.2rem; line-height: 1.8; margin-bottom: 25px; }
-
-.random-star-btn {
-background: none; border: none; font-size: 3rem; color: #fff; cursor: pointer;
-animation: starFlash 0.6s infinite alternate; text-shadow: 0 0 15px #fff, 0 0 30px #cca3ff;
-margin: 10px 0; transition: transform 0.2s;
-}
-@keyframes starFlash { 0% { opacity: 0.3; } 100% { opacity: 1; } }
-
-.idol-gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin: 20px auto; }
-.idol-gallery img {
-width: 135px; height: 135px; object-fit: cover; border-radius: 12px;
-border: 2px solid #6a0dad; box-shadow: 0 5px 15px rgba(0,0,0,0.7);
-cursor: pointer; transition: all 0.3s ease;
-}
-.idol-gallery img:hover { transform: scale(1.08) translateY(-4px); border-color: #cca3ff; box-shadow: 0 0 15px #cca3ff; }
-
-.search-container { margin: 25px 0; }
-input[type="text"] {
-background: rgba(36, 32, 43, 0.9); border: 2px solid #6a0dad; color: #cca3ff;
-padding: 12px 25px; border-radius: 25px; outline: none; text-align: center;
-font-size: 1rem; width: 300px; transition: all 0.3s ease;
-}
-input[type="text"]:focus { border-color: #cca3ff; box-shadow: 0 0 10px #cca3ff; }
-
-.gothic-btn {
-display: inline-flex; align-items: center; gap: 10px;
-background: rgba(106, 13, 173, 0.4); color: #fff;
-padding: 12px 25px; border-radius: 30px; text-decoration: none;
-font-weight: bold; border: 2px solid #cca3ff; font-size: 1rem;
-letter-spacing: 1px; box-shadow: 0 0 15px rgba(204, 163, 255, 0.3);
-transition: all 0.3s ease; margin: 5px;
-}
-.gothic-btn:hover {
-box-shadow: 0 0 25px #ff94b8; border-color: #ff94b8;
-background: rgba(212, 141, 163, 0.4); transform: translateY(-2px);
-}
-
-.skz-section {
-margin-top: 30px; padding: 20px;
-background: rgba(36, 32, 43, 0.6);
-border-radius: 20px; border: 1px solid #6a0dad;
-}
-
-.lightbox {
-display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%;
-background-color: rgba(15, 12, 18, 0.95); justify-content: center; align-items: center;
-}
-.lightbox img { max-width: 85%; max-height: 85%; border-radius: 15px; border: 3px solid #cca3ff; }
-.lightbox-close { position: absolute; top: 30px; right: 40px; color: #cca3ff; font-size: 3rem; cursor: pointer; }
-</style>
+        .game-zone-panel { background: rgba(20, 15, 35, 0.95); border-radius: 15px; padding: 20px; box-shadow: 0 0 20px rgba(0,240,255,0.2); }
+    </style>
 </head>
-<!-- 請把 index.html 裡的 <body> 區塊完全替換成這段完美排版： -->
-
-
-
 <body>
-
-<!-- 🕸️ 12個超大滿版不規則蜘蛛網背景 🕸️ -->
-<div class="spider-web web-1">🕸️</div><div class="spider-web web-2">🕸️</div>
-<div class="spider-web web-3">🕸️</div><div class="spider-web web-4">🕸️</div>
-<div class="spider-web web-5">🕸️</div><div class="spider-web web-6">🕸️</div>
-<div class="spider-web web-7">🕸️</div><div class="spider-web web-8">🕸️</div>
-<div class="spider-web web-9">🕸️</div><div class="spider-web web-10">🕸️</div>
-<div class="spider-web web-11">🕸️</div><div class="spider-web web-12">🕸️</div>
 
 <div class="main-container">
-<div class="rating-stars rainbow-blink">♡ ★ ★ ★ ★ ★ ★ ♡</div>
-<div class="rating-stars">♡ ★ ★ ★♡★ ★ ★ ♡</div>
+    <!-- 🔑 MEMBERSHIP LOGIN 按鈕 -->
+    <div style="display: flex; justify-content: flex-end; width: 100%; padding-right: 20px; margin-top: 15px; margin-bottom: 20px;">
+        <a href="{% url 'dashboard' %}" style="text-decoration: none;">
+            <button type="button" style="background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%); border: 3px solid #ff79c6; color: white; padding: 10px 20px; border-radius: 30px; font-size: 1rem; font-weight: bold; letter-spacing: 2px; cursor: pointer; box-shadow: 0 0 15px #ff79c6;">🔑 MEMBERSHIP LOGIN 👤</button>
+        </a>
+    </div>
 
-<body>
+    <!-- 🌟 標題區 -->
+    <div style="text-align: center; margin-bottom: 20px;">
+        <h1 class="gothic-neon-title">♡★🕷️안녕하세요❣️歡迎來到我Aki아키 4D 도깨비❄️🎃詭異世界🕷️❣️☆♡★DrEaM★♡☆♡</h1>
+        <p style="color: #00f2fe; font-weight: bold; font-size: 1.1rem; text-shadow: 0 0 8px #00f2fe; margin-top: 10px;">我最愛嘅❣️★Korean World with ❣️K-Pop♡Cosplay★Travel♡Everything👻☆★❤️♡ㅎㅎㅎ★❄️</p>
+    </div>
 
-<!-- 1. 萬聖節動態效果專用樣式（CSS 動畫魔法） -->
-<style>
-/* 閃爍跳動動畫 1 */
-@keyframes halloweenBlink {
-0%, 100% { opacity: 0.3; transform: scale(1); filter: drop-shadow(0 0 2px #ff79c6); }
-50% { opacity: 1; transform: scale(1.1); filter: drop-shadow(0 0 15px #ff79c6) drop-shadow(0 0 30px #ff79c6); }
-}
-/* 輕微上下漂浮跳動動畫 2 */
-@keyframes floatJump {
-0%, 100% { transform: translateY(0); }
-50% { transform: translateY(-8px); }
-}
-/* 酷炫霓虹呼吸動畫 3 */
-        @keyframes neonPulse {
-            0%, 100% { border-color: #ff79c6; box-shadow: 0 0 10px #ff79c6; }
-            50% { border-color: #bd93f9; box-shadow: 0 0 25px #bd93f9, 0 0 40px #ff79c6; }
-        }
-        /* 套用動畫的類別 */
-        .blink-jump { animation: halloweenBlink 1.5s infinite ease-in-out, floatJump 2s infinite ease-in-out; display: inline-block; }
-        .only-blink { animation: halloweenBlink 2s infinite ease-in-out; display: inline-block; }
-        .neon-box { animation: neonPulse 3s infinite ease-in-out; }
-    </style>
+    <!-- ⚡ 鋼鐵表單解耦：大星星隔離在 form 外面，徹底防止按了刷新變 None -->
+    <div class="search-container">
+        <form method="GET" action="." style="display: inline-block;">
+            <input type="text" name="q" value="{{ search_query|default:'' }}" placeholder="輸入名字尋找偶像、餐廳或注意事項..." style="padding: 12px 20px; border-radius: 25px; border: 2px solid #ff79c6; background: rgba(0,0,0,0.6); color: white; width: 320px; font-size: 1rem; text-align: center;">
+            <button type="submit" style="background: #ff79c6; color: black; border: none; padding: 12px 25px; border-radius: 25px; font-weight: bold; cursor: pointer; margin-left: 10px; box-shadow: 0 0 10px #ff79c6;">🔍 搜尋資料</button>
+        </form>
+        <br><br>
+        <button type="button" class="random-star-circle-btn" id="aki-magic-btn">★</button>
+    </div>
 
-    <!-- 2. 左右兩側的萬城節巨大蜘蛛網 -->
-    <div class="spider-web left-web" style="position: fixed; left: 20px; top: 30%; font-size: 80px; opacity: 0.2; z-index: 1; pointer-events: none;">🕸️</div>
-    <div class="spider-web right-web" style="position: fixed; right: 20px; top: 30%; font-size: 80px; opacity: 0.2; z-index: 1; pointer-events: none;">🕸️</div>
-
-    <div class="main-container" style="position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; text-align: center;">
-
-    <!-- 驚悚爬行的小蜘蛛群 -->
-    <div class="gothic-spider" style="left: 8%; top: 20%; font-size: 45px; animation-delay: 0.5s;">🕷️</div>
-    <div class="gothic-spider" style="right: 10%; top: 25%; font-size: 40px; animation-delay: 1.2s;">🕷️</div>
-    <div class="gothic-spider" style="left: 6%; bottom: 25%; font-size: 50px; animation-delay: 1.8s;">🕷️</div>
-    <div class="gothic-spider" style="right: 7%; bottom: 30%; font-size: 42px; animation-delay: 2.5s;">🕷️</div>
-
-    <style>
-    /* 蜘蛛網與蜘蛛的微幅晃動動畫 */
-        @keyframes webFloat {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-12px) rotate(4deg); }
-        }
-        @keyframes spiderCrawl {
-            0%, 100% { transform: scale(1) translateY(0); }
-            50% { transform: scale(1.15) translateY(-5px); filter: drop-shadow(0 0 8px #ff5555); }
-        }
-        /* 酷炫會員按鈕的霓虹呼吸動畫 */
-        @keyframes coolButtonPulse {
-            0%, 100% { box-shadow: 0 0 15px #bd93f9, inset 0 0 5px #bd93f9; }
-            50% { box-shadow: 0 0 30px #ff79c6, inset 0 0 15px #ff79c6; transform: scale(1.03); }
-        }
-
-        .blink-jump { animation: halloweenBlink 1.5s infinite ease-in-out, floatJump 2s infinite ease-in-out; display: inline-block; }
-        .only-blink { animation: halloweenBlink 2s infinite ease-in-out; display: inline-block; }
-        .neon-box { animation: neonPulse 3s infinite ease-in-out; }
-        
-        /* 蜘蛛網與蜘蛛的專用類別 */
-        .gothic-web { position: fixed; opacity: 0.22; z-index: 1; pointer-events: none; animation: webFloat 4.5s infinite ease-in-out; color: #6272a4; }
-        .gothic-spider { position: fixed; opacity: 0.28; z-index: 1; pointer-events: none; animation: spiderCrawl 3s infinite ease-in-out; }
-
-        /* 彈窗與燈箱通用背底層 */
-        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 5, 15, 0.85); z-index: 10000; justify-content: center; align-items: center; }
-        .gothic-modal { background: rgba(25, 15, 35, 0.95); border: 2px solid #bd93f9; border-radius: 15px; padding: 25px; width: 320px; box-shadow: 0 0 25px #bd93f9; text-align: center; color: white; position: relative; }
-        .gothic-input { width: 90%; padding: 10px; margin: 10px 0; border-radius: 20px; border: 1px solid #ff79c6; background: rgba(0,0,0,0.5); color: white; outline: none; }
-    </style>
-
-    <!-- ==================== 3. 核心 8 張相片網格 + 右上角型酷巨大化會員登入按鈕 ==================== -->
-        <div style="position: relative; max-width: 600px; width: 100%;">
-            
-            <!-- 型酷升級：加大版哥德式暗黑霓虹會員按鈕（隨意擺放在網格右上方的絕佳空地，極具儀式感！） -->
-            <div style="position: absolute; right: -50px; top: -70px; z-index: 999;">
-                <button onclick="openLoginModal()" class="neon-box" style="background: linear-gradient(135deg, #290749de, #6a0bae); border: 4px solid #970490d8; color: rgba(121, 5, 96, 0.86); padding: 12px 28px; border-radius: 32px; font-size: 20px; font-weight: bold; letter-spacing: 1px; cursor: pointer; animation: coolButtonPulse 2.5s infinite ease-in-out; transition: all 0.3s;" onmouseover="this.style.color='#da087f'; this.style.transform='scale(1.08)';" onmouseout="this.style.color='#df0b72'; this.style.transform='scale(1)';">
-                    🔮 🔒 MEMBERSHIP 🎃 🦇
-                </button>
+    <!-- 🎃 12 宮格方形相簿主體：全自動讀取後端的最高權限線上高清大圖流 -->
+    <div class="master-gallery-grid">
+        {% for item in results %}
+            <div class="gallery-box-item" onclick="openAkiLightbox('{{ item.img }}')">
+                <img src="{{ item.img }}" alt="{{ item.name }}">
+                <div class="gallery-text-label">{{ item.name }}</div>
             </div>
+        {% endfor %}
+    </div>
+
+    <!-- 🎮 雙小遊戲物理隔離面板區 -->
+    <div style="clear: both; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 35px; margin-top: 40px; margin-bottom: 40px;">
+        <div class="game-zone-panel" id="skz-game-board" style="width: 100%; max-width: 550px; border: 2px solid #ff9900; box-shadow: 0 0 15px #ff9900; text-align: center; color: white;">
+            <h3 style="color: #ff9900; font-weight: bold; margin-bottom: 15px;">🎃 關卡一：Aki 逃脫 Q 版鬼魂小遊戲 👻</h3>
+            <p>目前生存得分：<span id="game-score" style="color: #fff; font-weight: bold; font-size: 1.2rem;">0</span></p>
+            <button type="button" id="start-game-clinker" style="background: #ff9900; color: white; border: none; padding: 10px 24px; border-radius: 20px; font-weight: bold; cursor: pointer; box-shadow: 0 0 10px #ff9900;">⚡ 召喚遊戲開始 🎮</button>
+        </div>
+
+        <div class="game-zone-panel" id="pumpkin-game-board" style="width: 100%; max-width: 550px; border: 2px dashed #00f0ff; box-shadow: 0 0 15px #00f0ff; text-align: center; color: white; position: relative; height: 180px;">
+            <h3 style="color: #00f0ff; font-weight: bold; margin-bottom: 15px;">🎃 關卡二：可愛女生尋找萬盛節南瓜小遊戲 👧</h3>
+            <button type="button" id="pumpkin-spawn-btn" style="background: #00f0ff; color: black; border: none; padding: 10px 24px; border-radius: 20px; font-weight: bold; cursor: pointer; box-shadow: 0 0 10px #00f0ff;">🔍 尋找隱藏南瓜 🎃</button>
+            <div id="secret-pumpkin" style="display: none; font-size: 2.5rem; cursor: pointer; position: absolute; z-index: 999; user-select: none;">🎃</div>
+        </div>
+    </div>
+
+    <!-- 🎛️ PostgreSQL 會員管理面板 -->
+    <div class="game-zone-panel" style="border: 2px solid #a18cd1; box-shadow: 0 0 20px #a18cd1; max-width: 550px; margin: 20px auto; color: white; text-align: center;">
+        <h3 style="color: #fbc2eb; font-weight: bold; margin-bottom: 20px;">👤 PostgreSQL 資料庫實時管理系統 (CRUD)</h3>
+        <form method="POST" style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 25px;">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="register_member">
+            <input type="text" name="username" placeholder="請輸入模擬新會員名稱..." required style="padding: 12px; border-radius: 20px; border: 1px solid #a18cd1; background: rgba(0,0,0,0.5); color: white; text-align: center; font-size: 1rem;">
+            <button type="submit" style="background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%); color: black; border: none; padding: 12px; border-radius: 25px; font-weight: bold; cursor: pointer; box-shadow: 0 0 10px #a18cd1;">📥 執行 SQL INSERT (Create 新增會員)</button>
+        </form>
+    </div>
+</div>
+
+<div style="display: none !important; visibility: hidden !important; pointer-events: none !important;">REGISTRATION_ID: ERB-2026-TSEPHOEBEAKI-EXCLUSIVE-PROJECT</div>
+
+<canvas id="halloween-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 2;"></canvas>
+
+<div id="spider-matrix" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9999;">
+    <div class="halloween-spider" style="position: absolute; font-size: 2.3rem; display: block; user-select: none;">🕷️</div>
+    <div class="halloween-spider" style="position: absolute; font-size: 2.3rem; display: block; user-select: none;">🕷️</div>
+    <div class="halloween-spider" style="position: absolute; font-size: 2.3rem; display: block; user-select: none;">🕷️</div>
+    <div class="halloween-spider" style="position: absolute; font-size: 2.3rem; display: block; user-select: none;">🕷️</div>
+    <div class="halloween-spider" style="position: absolute; font-size: 2.3rem; display: block; user-select: none;">🕷️</div>
 
 
-
-    <!-- 主容器（完美繼承你截圖中最愛的畫面與霓虹排版） -->
-    <div class="main-container" style="position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; text-align: center;">
+<script>
+    // 🔒 最高權限放行：將所有 JS 動態控制管線、定時器徹底解鎖，網頁一開立刻靈動慢慢爬！
+    window.addEventListener("load", function() {
+        const cvs = document.getElementById('halloween-canvas');
+        let ctx;
         
-        
-        <!-- 【第 1 行】符號會閃爍著跳動 -->
-        <div class="rating-stars blink-jump" style="font-size: 26px; color: #a70762; margin-bottom: 10px; letter-spacing: 5px;">
-            ♡ ★ ★ ★❣️★ ★ ★ ♡
-        </div>
+        function drawAkiGothicWebs() {
+            if (!cvs) return;
+            cvs.width = window.innerWidth; cvs.height = window.innerHeight;
+            ctx = cvs.getContext('2d');
+            ctx.clearRect(0, 0, cvs.width, cvs.height);
+            const godGothicColors = ['rgba(113, 0, 184, 0.71)', 'rgba(26, 202, 211, 0.73)', 'rgba(117, 94, 106, 0.72)'];
+            ctx.strokeStyle = godGothicColors[Math.floor(Math.random() * godGothicColors.length)];
+            ctx.lineWidth = 2.8;
+            for (let i = 0; i < 9; i++) {
+                let cx = Math.random() * cvs.width; let cy = Math.random() * cvs.height; let maxRadius = 65;
+                for (let a = 0; a < Math.PI * 2; a += Math.PI / 4) {
+                    ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx + Math.cos(a) * maxRadius, cy + Math.sin(a) * maxRadius); ctx.stroke();
+                }
+                for (let r = 15; r <= maxRadius; r += 15) {
+                    ctx.beginPath();
+                    for (let a = 0; a <= Math.PI * 2 + 0.1; a += Math.PI / 4) {
+                        let x = cx + Math.cos(a) * r; let y = cy + Math.sin(a) * r;
+                        if (a === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+                    }
+                    ctx.stroke();
+                }
+            }
+        }
+        drawAkiGothicWebs();
 
-        <!-- 【第 2 行】原本的歡迎標題 -->
-        <h1 style="color: #e8196fee; font-size: 32px; margin-bottom: 5px; text-shadow: 0 0 10px #e10c65e9;">
-            🎃🦹‍♀️♡★안녕하세요! 歡迎來到我 아키 嘅 도깨비 世界！★♡🧚‍♀️👻
-        </h1>
+        const spiders = document.querySelectorAll('.halloween-spider');
+        const magicBtn = document.getElementById('aki-magic-btn');
+        let spiderPositions = Array.from({length: 6}, () => ({ x: Math.random() * (window.innerWidth - 150) + 50, y: Math.random() * (window.innerHeight - 200) + 50 }));
 
-        <!-- 【第 3 行】文字加符號公仔都會閃爍著跳動 -->
-        <div class="rating-stars blink-jump" style="font-size: 24px; color: #ff5555; margin-bottom: 15px; font-weight: bold;">
-            🎃☆★❤️♡ㅎㅎㅎ❄️ ★ 도깨비 ❣️☆♡★DrEaM★♡☆
-        </div>
-        
-        <!-- 【第 4 行】介紹內文 -->
-        <p style="color: #128db5; font-size: 18px; font-weight: bold; margin-bottom: 30px;">
-            會為大家介紹我最愛嘅☆★❣️🕸️ ★
-            <!-- 【第 6 行（內文第2行）】只有英文字中間符號會閃爍 -->
-            <span style="color: #ff79c6;">Korean World with K-Pop</span> 
-            <span class="only-blink" style="color: #ff79c6; margin: 0 5px;">♡</span> 
-            <span style="color: #8be9fd;">Cosplay</span> 
-            <span class="only-blink" style="color: #12afb7f4; margin: 0 5px;">♡</span> 
-            <span style="color: #50fa7b;">Travel</span> 
-            <span class="only-blink" style="color: #50fa7b; margin: 0 5px;">♡</span> 
-            <span style="color: #17cbd4e4;">EveryThing</span> 👻☆★💛❣️🎃♡🐻♥︎👻★☆
-        </p>
+        function animateAllSpiders() {
+            spiders.forEach((sp, i) => {
+                spiderPositions[i].x += (Math.random() - 0.5) * 120; spiderPositions[i].y += (Math.random() - 0.5) * 120;
+                if (spiderPositions[i].x < 50) spiderPositions[i].x = 50; if (spiderPositions[i].x > window.innerWidth - 120) spiderPositions[i].x = window.innerWidth - 150;
+                if (spiderPositions[i].y < 50) spiderPositions[i].y = 50; if (spiderPositions[i].y > window.innerHeight - 150) spiderPositions[i].y = window.innerHeight - 200;
+                sp.style.position = 'fixed'; sp.style.left = spiderPositions[i].x + 'px'; sp.style.top = spiderPositions[i].y + 'px';
+                sp.style.display = 'block'; sp.style.zIndex = '9999'; sp.style.transition = 'left 1.3s ease-in-out, top 1.3s ease-in-out';
+            });
+        }
+        animateAllSpiders();
+        setInterval(animateAllSpiders, 1400);
 
-        <!-- 3. 【超級助教特製：搜尋結果公告欄】（搜尋時自動由上而下彈出） -->
-        {% if search_result %}
-        <div class="neon-box" style="background: rgba(30, 20, 40, 0.95); border: 2px solid #ff79c6; border-radius: 15px; padding: 20px; margin: 0 auto 30px auto; max-width: 600px;">
-            <h2 style="color: #ea476ae9; font-size: 24px; margin-bottom: 10px;">🎃 搜尋結果：{{ search_result.name }}</h2>
-            {% if search_result.img_url %}
-            <img src="{{ search_result.img_url }}" style="max-width: 80%; max-height: 250px; border-radius: 10px; margin-bottom: 10px;">
-            {% endif %}
-            <p style="color: #12d698ea; font-size: 16px;">{{ search_result.desc }}</p>
-            <a href="/" style="display: inline-block; margin-top: 10px; background: #ff5555; color: white; padding: 8px 15px; border-radius: 20px; text-decoration: none; font-weight: bold;">🏠 Back 返回首頁☆★</a>
-        </div>
-        {% endif %}
+        if (magicBtn) {
+            magicBtn.addEventListener('click', function(e) {
+                e.preventDefault(); e.stopPropagation();
+                drawAkiGothicWebs();
+                spiders.forEach((sp, i) => {
+                    spiderPositions[i].x = Math.floor(Math.random() * (window.innerWidth - 180)) + 60;
+                    spiderPositions[i].y = Math.floor(Math.random() * (window.innerHeight - 220)) + 60;
+                    sp.style.left = spiderPositions[i].x + 'px'; sp.style.top = spiderPositions[i].y + 'px';
+                    sp.style.transition = 'all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                });
+            });
+        }
 
-        <!-- 4. 核心 8 張相片的網格方陣（完全依照你最愛的置中排版） -->
-        <div class="idol-gallery" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; max-width: 600px; margin-bottom: 30px; justify-content: center; align-items: center;">
-            <img src="/static/idol1.jpg" onclick="openLightbox(this.src)" style="width: 120px; height: 120px; object-fit: cover; border-radius: 10px; border: 2px solid #bd93f9; cursor: pointer; transition: 0.3s;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'" alt="idol1">
-            <img src="/static/idol2.jpg" onclick="openLightbox(this.src)" style="width: 120px; height: 120px; object-fit: cover; border-radius: 10px; border: 2px solid #bd93f9; cursor: pointer; transition: 0.3s;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'" alt="idol2">
-            <img src="/static/idol3.jpg" onclick="openLightbox(this.src)" style="width: 120px; height: 120px; object-fit: cover; border-radius: 10px; border: 2px solid #bd93f9; cursor: pointer; transition: 0.3s;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'" alt="idol3">
-            <img src="/static/idol4.jpg" onclick="openLightbox(this.src)" style="width: 120px; height: 120px; object-fit: cover; border-radius: 10px; border: 2px solid #bd93f9; cursor: pointer; transition: 0.3s;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'" alt="idol4">
-            <img src="/static/idol5.jpg" onclick="openLightbox(this.src)" style="width: 120px; height: 120px; object-fit: cover; border-radius: 10px; border: 2px solid #bd93f9; cursor: pointer; transition: 0.3s;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'" alt="idol5">
-            <img src="/static/idol6.jpg" onclick="openLightbox(this.src)" style="width: 120px; height: 120px; object-fit: cover; border-radius: 10px; border: 2px solid #bd93f9; cursor: pointer; transition: 0.3s;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'" alt="idol6">
-            <img src="/static/idol7.jpg" onclick="openLightbox(this.src)" style="width: 120px; height: 120px; object-fit: cover; border-radius: 10px; border: 2px solid #bd93f9; cursor: pointer; transition: 0.3s;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'" alt="idol7">
-            <img src="/static/idol8.png" onclick="openLightbox(this.src)" style="width: 120px; height: 120px; object-fit: cover; border-radius: 10px; border: 2px solid #bd93f9; cursor: pointer; transition: 0.3s;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'" alt="idol8">
-        </div>
+        const gameStart = document.getElementById('start-game-clinker');
+        let currentScore = 0, scoreInterval;
+        if(gameStart) {
+            gameStart.addEventListener('click', function(e) {
+                e.preventDefault(); e.stopPropagation();
+                if(!scoreInterval) {
+                    scoreInterval = setInterval(() => { currentScore += 10; document.getElementById('game-score').innerText = currentScore; }, 1000);
+                    alert('⚡ Aki 4D 逃脫鬼魂成功啟動！生存得分開始瘋狂累積！');
+                }
+            });
+        }
 
-        <!-- 5. 位於相片正下方的搜尋框與功能白星 ★ -->
-        <div class="search-container" style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 25px;">
-            <form action="/search/" method="get" style="display: flex; align-items: center; gap: 10px;">
-                <input type="text" name="q" placeholder="🔎 輸入名字搜尋偶像、餐廳、景點或計劃..." value="{{ query }}" style="width: 320px; padding: 10px 20px; border-radius: 25px; border: 2px solid #ff79c6; background: rgba(0,0,0,0.6); color: white; outline: none;">
-            </form>
-            <button class="random-star-btn" style="background: none; border: 2px solid #ff79c6; color: white; font-size: 24px; padding: 5px 15px; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; transition: 0.3s;" onmouseover="this.style.transform='rotate(180deg) scale(1.1)'" onmouseout="this.style.transform='rotate(0deg) scale(1)'">★</button>
-        </div>
+        const pBtn = document.getElementById('pumpkin-spawn-btn'); const pumpkin = document.getElementById('secret-pumpkin');
+        if(pBtn && pumpkin) {
+            pBtn.addEventListener('click', function(e) {
+                e.preventDefault(); e.stopPropagation();
+                pumpkin.style.left = (Math.floor(Math.random() * 60) + 20) + '%'; pumpkin.style.top = (Math.floor(Math.random() * 40) + 90) + 'px'; pumpkin.style.display = 'block';
+            });
+            pumpkin.addEventListener('click', function() {
+                alert('🎉 成功找到隱藏南瓜！全盤功德大圓滿，總積分 +100！'); pumpkin.style.display = 'none';
+            });
+        }
 
-        <!-- ✨ 【型酷升級】STRAY KIDS YOUTUBE 分享 BUTTON 區 ✨ -->
-        <div style="margin-bottom: 30px;">
-            <a href="https://youtube.com" target="_blank" style="display: flex; align-items: center; gap: 12px; background: linear-gradient(135deg, #ff0055, #9900ff); color: white; padding: 12px 30px; border-radius: 50px; font-weight: bold; text-decoration: none; font-size: 16px; letter-spacing: 1px; box-shadow: 0 0 15px #ff0055, 0 0 30px rgba(153,0,255,0.5); transition: all 0.4s ease-in-out;" onmouseover="this.style.transform='translateY(-3px) scale(1.05)'; this.style.boxShadow='0 0 25px #ff0055, 0 0 50px #9900ff';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 0 15px #ff0055, 0 0 30px rgba(153,0,255,0.5)';">
-                <span style="font-size: 20px;">▶️</span> WATCH STRAY KIDS ON YOUTUBE ⚡🎸
-            </a>
-        </div>
-
-        <!-- 6. 最底部的音樂播放功能清單區 -->
-        <div class="music-container neon-box" style="background: rgba(40, 30, 60, 0.85); border: 2px solid #bd93f9; border-radius: 15px; padding: 15px; width: 350px; text-align: left; margin: 0 auto;">
-            <h3 style="color: #ba11d8; font-size: 16px; margin-bottom: 10px; text-align: center;">🔮 아키 ❣️嘅音樂收藏與 ❣️Stray Kids 最愛神曲 ❣️🪻</h3>
-            <button style="width: 100%; margin-bottom: 8px; background: #6272a4; color: white; padding: 8px; border: none; border-radius: 10px; text-align: left; cursor: pointer; transition: 0.2s;" onmouseover="this.style.background='#44475a'" onmouseout="this.style.background='#6272a4'">🎵 Play Original AI Music</button>
-            <button style="width: 100%; margin-bottom: 8px; background: #ff79c6; color: white; padding: 8px; border: none; border-radius: 10px; text-align: left; cursor: pointer; transition: 0.2s;" onmouseover="this.style.background='#ff92df'" onmouseout="this.style.background='#ff79c6'">⚡ 락 樂 LALALALA</button>
-            <button style="width: 100%; margin-bottom: 8px; background: #ffb86c; color: white; padding: 8px; border: none; border-radius: 10px; text-align: left; cursor: pointer; transition: 0.2s;" onmouseover="this.style.background='#ffcb8d'" onmouseout="this.style.background='#ffb86c'">💥 Chk Chk Boom</button>
-
+        window.openAkiLightbox = function(imgSrc) {
+            const lightbox = document.getElementById('lightbox');
+            if (lightbox) { lightbox.style.display = 'flex'; lightbox.querySelector('img').src = imgSrc; }
+        };
+    });
+</script>
 </body>
+</html>
+
+

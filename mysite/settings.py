@@ -121,3 +121,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# 🔐 告訴 Django 夥伴，我們專屬的萬聖節會員登入門在這裡！
+LOGIN_URL = '/membership/login/'

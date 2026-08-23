@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>會員中心 Dashboard | NAYUN 4D</title>
+    <style>
+        body { background-color: #0a0a12; color: #fff; font-family: sans-serif; text-align: center; padding: 50px; }
+        .card { background: rgba(189,147,249,0.1); border: 2px solid #bd93f9; border-radius: 15px; padding: 20px; max-width: 500px; margin: 20px auto; box-shadow: 0 0 15px #bd93f9; }
+    </style>
+</head>
+<body>
+    <h1>📊 會員個人中心 (Dashboard)</h1>
+    <div class="card">
+        <h3>👤 歡迎回來，{{ profile.user.username }}</h3>
+        <p>🧡 最愛的 Stray Kids 成員：<span style="color: #00f2fe; font-weight: bold;">{{ profile.favorite_skz_member }}</span></p>
+    </div>
+
+    <h2>🎟️ 已安全同步至 pgAdmin 嘅預訂記錄 (Read)</h2>
+    {% for booking in bookings %}
+        <div class="card" style="border-color: #00f2fe;">
+            <p>{{ booking.details }} (預訂日期: {{ booking.booking_date }})</p>
+            <a href="{% url 'booking_delete' booking.id %}" style="color: #ff5555; font-weight: bold;">[❌ 取消預訂 Delete]</a>
+        </div>
+    {% empty %}
+        <p>👻 目前尚無預訂資料，快去首頁預訂 Stray Kids 門票吧！</p>
+    {% endfor %}
+    <br><a href="{% url 'index' %}" style="color: #a18cd1; text-decoration: none; font-size: 1.2rem;">🔙 返回 4D 世界首頁</a>
+</body>
+</html>
